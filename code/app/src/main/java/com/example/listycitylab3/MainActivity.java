@@ -25,11 +25,6 @@ public class MainActivity extends AppCompatActivity implements AddCityFragment.A
         cityAdapter.notifyDataSetChanged();
     }
 
-    public void editCity(String city, String province){
-
-
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,7 +54,8 @@ public class MainActivity extends AppCompatActivity implements AddCityFragment.A
         cityList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                new AddCityFragment(dataList.get(i)).show(getSupportFragmentManager(), "Edit City");
+                new EditCityFragment(dataList.get(i)).show(getSupportFragmentManager(), "Edit City");
+                cityAdapter.notifyDataSetChanged();
             }
         });
 
